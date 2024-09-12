@@ -3,7 +3,7 @@
 Use the following command to start the app.
 
 ```bash
-python -m flask --app main run
+python3 main.py
 ```
 
 Add `--debug` flag, to start the app in debug mode.
