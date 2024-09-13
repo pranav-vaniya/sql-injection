@@ -1,7 +1,14 @@
+# the code in this project has been intentionally written in a bad fashion to showcase sql injection and what-not-to-do
+
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+import sqlite3
+from pathlib import Path
 
 app = Flask(__name__)
 app.secret_key = "the_secure_banks_super_secret_key"  # will be used for session cookies, not really a worry for us
+
+CURR_DIR = Path(__file__).parent
+dbpath = CURR_DIR / "database" / "users.db"
 
 
 @app.route("/")
@@ -26,7 +33,18 @@ def login_user():
     username = data.get("username")
     password = data.get("password")
 
-    if username == "user" and password == "pass":
+    isValidUser = False
+
+    userdb_conn = sqlite3.connect(dbpath)
+    userdb_cursor = userdb_conn.cursor()
+    data = userdb_cursor.execute(
+        f"SELECT * FROM USERS WHERE username='{username}' and password='{password}'"
+    )
+
+    if len(data.fetchall()) == 1:
+        isValidUser = True
+
+    if isValidUser:
         session["logged_in"] = True
         return jsonify({"message": "Login successful"}), 200
 

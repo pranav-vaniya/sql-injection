@@ -25,15 +25,20 @@
                 <!-- content -->
                 <div class="border border-dark-subtle p-5 rounded" id="content-box">
 
-                    <!-- title -->
-                    <div class="fs-2 text-center" id="title">
-                        Secure Bank
+                    <div class="mb-5 text-center">
+                        <img class="border-0" src="/static/images/logo-no-background.png" alt="Secure Bank"
+                            style="width: 350px;">
                     </div>
 
+                    <!-- title -->
+                    <!-- <div class="fs-2 text-center" id="title">
+                        Secure Bank
+                    </div> -->
+
                     <!-- sub title -->
-                    <div class="fs-6 mb-5 text-center" id="sub-title">
+                    <!-- <div class="fs-6 mb-5 text-center" id="sub-title">
                         Secured Banking Services
-                    </div>
+                    </div> -->
 
                     <!-- username -->
                     <div class="input-group mb-3">
@@ -44,14 +49,16 @@
 
                     <!-- password -->
                     <div class="input-group mb-4">
-                        <input type="password"
+                        <input type="text"
                             class="form-control border-top-0 border-start-0 border-end-0 rounded-0 border-dark-subtle pb-1 ps-2 pe-2"
                             placeholder="Password" id="password">
                     </div>
 
                     <!-- login button -->
                     <div class="text-center">
-                        <button class="btn rounded-0 mt-2 p-1" id="login-btn">
+                        <button
+                            class="btn rounded-0 mt-2 ps-0 pe-0 pb-0 border border-bottom border-top-0 border-start-0 border-end-0 border-dark"
+                            id="login-btn">
                             Sign In
                             <i class="bi bi-box-arrow-in-right fs-5"></i>
                         </button>
@@ -67,6 +74,10 @@
             </div>
         </div>
 
+    </div>
+
+    <div id="popup" class="m-2 p-2 border rounded">
+        You shouldn't be seeing this.
     </div>
 
     <!-- JavaScript -->
