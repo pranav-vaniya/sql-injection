@@ -41,7 +41,7 @@ def login_user():
         f"SELECT * FROM USERS WHERE username='{username}' and password='{password}'"
     )
 
-    if len(data.fetchall()) == 1:
+    if len(data.fetchall()) != 0:
         isValidUser = True
 
     if isValidUser:
