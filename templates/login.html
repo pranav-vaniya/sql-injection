@@ -76,6 +76,66 @@
 
     </div>
 
+    <!-- hint -->
+    <button id="show-hint-btn" type="button" class="m-2 btn border border-dark-subtle" data-bs-toggle="modal" data-bs-target="#hintModal">
+        <i class="bi bi-lightbulb-fill"></i> Show Hint
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="hintModal" tabindex="-1" aria-labelledby="hintModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="hintModalLabel">
+                        Hint: Understanding SQL Injection and the Login Bypass
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p>
+                        When you log in to a website, your username and password are usually checked against the stored
+                        credentials in a database. This process is typically done using an SQL query like this:
+                    </p>
+                    <kbd>SELECT * FROM users WHERE username = 'input_username' AND password = 'input_password';</kbd><br><br>
+                    <p>Here's how it works:</p>
+                    <ul>
+                        <li>The website takes the username and password you entered and inserts them into the query.
+                        </li>
+                        <li>If the username and password match the records in the database, you are logged in.</li>
+                    </ul>
+                    <hr>
+                    <p>
+                        SQL Injection is a technique where malicious users can manipulate the SQL query to alter its
+                        behavior. By entering
+                        <kbd>' OR 1 = 1 ---</kbd> in the username or password field, the query changes to:
+                    </p>
+                    <kbd>SELECT * FROM users WHERE username = '' OR 1 = 1 ---' AND password = '';</kbd><br><br>
+                    <p><strong>Breaking it Down:</strong></p>
+                    <ul>
+                        <li><kbd>'</kbd> closes the string input.</li>
+                        <li><kbd>OR 1 = 1</kbd> is always true, so the condition will always be met.</li>
+                        <li><kbd>---</kbd> comments out the rest of the query, ignoring any password checks.</li>
+                    </ul>
+                    <p>
+                        As a result, the query bypasses the need for a correct username and password, granting access
+                        without validation.
+                    </p>
+                    <hr>
+                    <p><strong>In Summary:</strong></p>
+                    <p>
+                        The injection tricks the SQL query into always finding a match, allowing unauthorized access
+                        without knowing the correct credentials. Always ensure that inputs are properly validated and
+                        sanitized to prevent such attacks!
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div id="popup" class="m-2 p-2 border rounded">
         You shouldn't be seeing this.
     </div>

@@ -16,3 +16,26 @@
     background-color: aliceblue;
     font-weight: bold;
 }
+
+#show-hint-btn {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+#show-hint-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#show-hint-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
